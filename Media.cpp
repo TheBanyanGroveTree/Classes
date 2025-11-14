@@ -9,6 +9,12 @@ Media::Media() {
   year = 0;
 }
 
+Media::Media(char* userTitle, int userYear) {
+  title = new char[81];
+  strcpy(title, userTitle);
+  year = userYear;
+}
+
 char* Media::getTitle() {
   return title;
 }
