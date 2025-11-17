@@ -102,7 +102,7 @@ void addEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
   cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear input buffer
   
   // read in input for class specific fields
-  if (strcmp(mediaType, "VIDEOGAMES") == 0) {
+  if (strcmp(mediaType, "VIDEOGAMES") == 0) { // video games
     char publisher[INPUT_LENGTH];
     float rating = 0.0;
 
@@ -117,7 +117,7 @@ void addEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
     VideoGames* vg = new VideoGames(title, year, publisher, rating);
     // add object to database vector
     database.push_back(vg);
-  } else if (strcmp(mediaType, "MUSIC") == 0) {
+  } else if (strcmp(mediaType, "MUSIC") == 0) { // music
     char artist[INPUT_LENGTH];
     int duration = 0;
     char publisher[INPUT_LENGTH];
@@ -135,7 +135,7 @@ void addEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
     Music* music = new Music(title, artist, year, duration, publisher);
     
     database.push_back(music);
-  } else if (strcmp(mediaType, "MOVIES") == 0) {
+  } else if (strcmp(mediaType, "MOVIES") == 0) { // movies
     char director[INPUT_LENGTH];
     int duration = 0;
     float rating = 0.0;
@@ -192,8 +192,8 @@ void deleteEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
       if (tolower(confirmDelete) == 'y') {
-	delete ptr;
-	return true;
+	delete ptr; // deallocate memory
+	return true; // mark for removal
       }
     }
     return false;
