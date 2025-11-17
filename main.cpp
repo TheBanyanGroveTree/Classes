@@ -1,4 +1,9 @@
-/* Description:
+/* Description: The purpose of this program is to create a media database
+   consisting of video games, music, and movies. The "ADD" command allows
+   users to create new entries. Additionally, the "SEARCH" command prints
+   the information for entries that match the given title. Lastly, the
+   "DELETE" command is used to delete entries that match a specific title.
+   The program ends with the "QUIT" command.
    Author: Aahana Sapra
    Date: 11/16/25
  */
@@ -22,7 +27,7 @@ void searchEntry(vector<Media*> &database, const int &INPUT_LENGTH);
 void deleteEntry(vector<Media*> &database, const int &INPUT_LENGTH);
 
 int main() {
-  // create vector
+  // declare Media vector
   vector<Media*> database;
 
   // declare char arr for user input
