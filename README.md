@@ -1,0 +1,1 @@
+The purpose of this program is to create a media database consisting of video games, music, and movies. The "ADD" command allows users to create new entries. Additionally, the "SEARCH" command prints the information for entries that match the given title. Lastly, the "DELETE" command is used to delete entries that match a specific title. The program ends with the "QUIT" command.
