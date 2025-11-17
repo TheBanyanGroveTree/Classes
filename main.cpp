@@ -42,15 +42,21 @@ int main() {
     }
     
     // validate input
-    if (strcmp(userCommand, "ADD") == 0) {
+    if (strcmp(userCommand, "ADD") == 0) { // add
       addEntry(database, INPUT_LENGTH);
-    } else if (strcmp(userCommand, "SEARCH") == 0) {
+    } else if (strcmp(userCommand, "SEARCH") == 0) { // search
       searchEntry(database, INPUT_LENGTH);
-    } /*else if (strcmp(userCommand, "DELETE") == 0) {
-      //      deleteEntry(database, INPUT_LENGTH);
-      } */else if (strcmp(userCommand, "QUIT") == 0) {
+    } else if (strcmp(userCommand, "DELETE") == 0) { // delete
+      deleteEntry(database, INPUT_LENGTH);
+    } else if (strcmp(userCommand, "QUIT") == 0) { // quit
+      // clear vector
+      for (Media* ptr : database) {
+	delete ptr;
+      }
+      database.clear();
+      
       keepModifying = false;
-    } else {
+    } else { // invalid input
       cout << "Please enter ADD, SEARCH, DELETE, or QUIT." << endl;
     }
   }
