@@ -66,10 +66,24 @@ int main() {
 
 // define add function to create a new media entry
 void addEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
-  // prompt user for media type
+  // prompt user for media type and validate input
   char mediaType[INPUT_LENGTH];
-  cout << "Enter a type of media (VIDEOGAMES, MUSIC, MOVIES): ";
-  cin.getline(mediaType, INPUT_LENGTH);
+  bool incorrectType = true;
+  while (incorrectType) {
+    cout << "Enter a type of media (VIDEOGAMES, MUSIC, MOVIES): ";
+    cin.getline(mediaType, INPUT_LENGTH);
+
+    for (int i = 0; i < strlen(mediaType); i++) {
+      mediaType[i] = toupper(mediaType[i]);
+    }
+
+    if ((strcmp(mediaType, "VIDEOGAMES") == 0) || (strcmp(mediaType, "MUSIC") == 0) ||
+	(strcmp(mediaType, "MOVIES") == 0)) {
+      incorrectType = false;
+    } else {
+      cout << "Please enter a valid media type." << endl;
+    }
+  }
 
   // read in input for common fields
   char title[INPUT_LENGTH];
