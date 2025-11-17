@@ -9,6 +9,7 @@
 #include <vector>
 #include <limits>
 #include <ios>
+#include <algorithm>
 #include "VideoGames.h"
 #include "Music.h"
 #include "Movies.h"
@@ -147,8 +148,32 @@ void searchEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
   }
 }
 
-
 // define delete function to delete an item from the database
 void deleteEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
+  // prompt user for title of media
+  char title[INPUT_LENGTH];
+  cout << "Enter the title: ";
+  cin.getline(title, INPUT_LENGTH);
 
+  // erase-remove idiom
+  // define lambda function to deallocate memory for media being removed
+  auto removeMedia = remove_if(database.begin(), database.end(), [&title](Media *ptr) {
+    if (strcmp(title, ptr->getTitle()) == 0) {
+      // confirm delete action
+      ptr->printInformation();
+      char confirmDelete = 'y';
+      cout << "Do you want to proceed with this action (y/n)? ";
+      cin >> confirmDelete;
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+      if (tolower(confirmDelete) == 'y') {
+	delete ptr;
+	return true;
+      }
+    }
+    return false;
+  });
+
+  // erase nullified ptr
+  database.erase(removeMedia, database.end());
 }
