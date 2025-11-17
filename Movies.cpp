@@ -32,3 +32,8 @@ int Movies::getDuration() {
 float Movies::getRating() {
   return rating;
 }
+
+void Movies::printInformation() {
+  cout << title << ", " << director << ", " << year << ", "
+       << duration << ", " << rating << endl;
+}

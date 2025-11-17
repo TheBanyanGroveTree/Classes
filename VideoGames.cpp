@@ -24,3 +24,7 @@ char* VideoGames::getPublisher() {
 float VideoGames::getRating() {
   return rating;
 }
+
+void VideoGames::printInformation() {
+  cout << title << ", " << year << ", " << publisher << ", " << rating << endl;
+}

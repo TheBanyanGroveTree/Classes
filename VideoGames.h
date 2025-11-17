@@ -10,6 +10,7 @@ class VideoGames : public Media {
   VideoGames(char*, int, char*, float);
   char* getPublisher();
   float getRating();
+  virtual void printInformation();
  private:
   char* publisher;
   float rating;

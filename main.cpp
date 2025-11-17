@@ -1,6 +1,6 @@
 /* Description:
    Author: Aahana Sapra
-   Date: 11/14/25
+   Date: 11/16/25
  */
 
 // headers
@@ -17,8 +17,8 @@ using namespace std;
 
 // define function prototypes
 void addEntry(vector<Media*> &database, const int &INPUT_LENGTH);
-void searchEntry(vector<Media*> &database);
-void deleteEntry(vector<Media*> &database);
+void searchEntry(vector<Media*> &database, const int &INPUT_LENGTH);
+void deleteEntry(vector<Media*> &database, const int &INPUT_LENGTH);
 
 int main() {
   // create vector
@@ -44,9 +44,9 @@ int main() {
     if (strcmp(userCommand, "ADD") == 0) {
       addEntry(database, INPUT_LENGTH);
     } /*else if (strcmp(userCommand, "SEARCH") == 0) {
-      //      searchEntry();
+      //      searchEntry(database, INPUT_LENGTH);
     } else if (strcmp(userCommand, "DELETE") == 0) {
-      //      deleteEntry();
+      //      deleteEntry(database, INPUT_LENGTH);
       } */else if (strcmp(userCommand, "QUIT") == 0) {
       keepModifying = false;
     } else {
@@ -132,6 +132,23 @@ void addEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
 }
 
 // define search function to search for and print objects in media database
+void searchEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
+  // prompt user for title of media
+  char title[INPUT_LENGTH];
+  cout << "Enter the title: ";
+  cin.getline(title, INPUT_LENGTH);
+
+  // search for all entries that match given title
+  for (auto it = database.begin(); it != database.end(); ++it) {
+    // print entry if it is a match
+    if (strcmp(title, (*it)->getTitle()) == 0) {
+      (*it)->printInformation();
+    }
+  }
+}
 
 
 // define delete function to delete an item from the database
+/*void deleteEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
+
+  }*/
