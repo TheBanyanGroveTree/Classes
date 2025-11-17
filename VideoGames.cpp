@@ -28,3 +28,7 @@ float VideoGames::getRating() {
 void VideoGames::printInformation() {
   cout << title << ", " << year << ", " << publisher << ", " << rating << endl;
 }
+
+VideoGames::~VideoGames() {
+  delete publisher;
+}

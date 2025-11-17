@@ -43,9 +43,9 @@ int main() {
     // validate input
     if (strcmp(userCommand, "ADD") == 0) {
       addEntry(database, INPUT_LENGTH);
-    } /*else if (strcmp(userCommand, "SEARCH") == 0) {
-      //      searchEntry(database, INPUT_LENGTH);
-    } else if (strcmp(userCommand, "DELETE") == 0) {
+    } else if (strcmp(userCommand, "SEARCH") == 0) {
+      searchEntry(database, INPUT_LENGTH);
+    } /*else if (strcmp(userCommand, "DELETE") == 0) {
       //      deleteEntry(database, INPUT_LENGTH);
       } */else if (strcmp(userCommand, "QUIT") == 0) {
       keepModifying = false;
@@ -149,6 +149,6 @@ void searchEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
 
 
 // define delete function to delete an item from the database
-/*void deleteEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
+void deleteEntry(vector<Media*> &database, const int &INPUT_LENGTH) {
 
-  }*/
+}

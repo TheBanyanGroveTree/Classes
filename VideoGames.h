@@ -11,6 +11,7 @@ class VideoGames : public Media {
   char* getPublisher();
   float getRating();
   virtual void printInformation();
+  ~VideoGames();
  private:
   char* publisher;
   float rating;

@@ -37,3 +37,7 @@ void Movies::printInformation() {
   cout << title << ", " << director << ", " << year << ", "
        << duration << ", " << rating << endl;
 }
+
+Movies::~Movies() {
+  delete director;
+}

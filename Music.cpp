@@ -38,3 +38,7 @@ void Music::printInformation() {
   cout << title << ", " << artist << ", " << year << ", "
        << duration << ", " << publisher << endl;
 }
+
+Music::~Music() {
+  delete artist, publisher;
+}

@@ -26,3 +26,8 @@ int Media::getYear() {
 void Media::printInformation() {
   cout << title << ", " << year << endl;
 }
+
+// define destructor to delete dynamically allocated memory
+Media::~Media() {
+  delete title;
+}
